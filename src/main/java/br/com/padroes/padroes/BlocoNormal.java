@@ -1,5 +1,5 @@
 package br.com.padroes.padroes;
 
-public class BlocoNormal extends Bloco{
+public class BlocoNormal extends BlocoEasy{
 
 }

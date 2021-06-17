@@ -1,0 +1,29 @@
+@startuml
+abstract class br.com.padroes.padroes.Bloco
+annotation java.lang.Override
+class br.com.padroes.padroes.BlocoEasy
+class br.com.padroes.padroes.BlocoHard
+class br.com.padroes.padroes.BlocoNormal
+class br.com.padroes.padroes.Jogo
+class br.com.padroes.padroes.Player
+class br.com.padroes.padroes.Questao
+class br.com.padroes.padroes.main
+class java.util.ArrayList
+class java.util.List
+class java.util.Scanner
+interface java.lang.Cloneable
+br.com.padroes.padroes.Bloco ..> java.lang.Override
+br.com.padroes.padroes.Bloco ..> java.util.ArrayList
+br.com.padroes.padroes.Bloco ..> java.util.List
+br.com.padroes.padroes.Bloco --|> java.lang.Cloneable
+br.com.padroes.padroes.BlocoEasy --|> br.com.padroes.padroes.Bloco
+br.com.padroes.padroes.BlocoHard --|> br.com.padroes.padroes.Bloco
+br.com.padroes.padroes.BlocoNormal --|> br.com.padroes.padroes.Bloco
+br.com.padroes.padroes.Jogo ..> java.util.ArrayList
+br.com.padroes.padroes.Jogo ..> java.util.List
+br.com.padroes.padroes.Jogo ..> java.util.Scanner
+br.com.padroes.padroes.Player ..> java.lang.Override
+br.com.padroes.padroes.Player --|> java.lang.Cloneable
+br.com.padroes.padroes.Questao ..> java.lang.Override
+br.com.padroes.padroes.Questao --|> java.lang.Cloneable
+@enduml

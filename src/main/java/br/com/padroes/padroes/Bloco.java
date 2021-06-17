@@ -3,7 +3,7 @@ package br.com.padroes.padroes;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Bloco implements Cloneable{
+public abstract class Bloco {
     List<Questao> questoes;
     private Bloco proxNivel;
     
@@ -26,10 +26,6 @@ public abstract class Bloco implements Cloneable{
     public void removeQst(Questao qst){
         this.questoes.remove(qst);
     }
-    
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone(); 
-    }
+
     
 }

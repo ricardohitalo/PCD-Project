@@ -41,8 +41,8 @@ public class Jogo{
             case 2:
                 if(verif = playQsts(nivel))
                     //6 é o total de qsts
-                    System.out.println("\nAnálise de Desempenho: Acertos: " + (player.getAcertos() / 6) * 100 + "%  | Erros: " + (player.getErros() / 6) * 100 + "%\n");
-                    break;              
+                    //System.out.println("\nAnálise de Desempenho: Acertos: " + (player.getAcertos() / 6) * 100 + "%  | Erros: " + (player.getErros() / 6) * 100 + "%\n");
+                break;              
                 
         }
         System.out.println("\nFIM DO JOGO! O jogador " + player.getNome() + " teve um total de " + player.getAcertos() + " acertos e " + player.getErros() + " erros! \n");
@@ -54,8 +54,10 @@ public class Jogo{
             player.setResposta(ler.next());
             if(player.getResposta().equals(blocos.get(bloco).questoes.get(j).getResposta())){
                 player.setAcertos(player.getAcertos() + 1);
+                System.out.println("\nRESPOSTA CORRETA!");
             }else{
                 player.setErros(player.getErros() + 1);
+                System.out.println("\nRESPOSTA ERRADA! R: " + blocos.get(bloco).questoes.get(j).getResposta());
             }
         }
         if(player.getAcertos() > blocos.get(bloco).questoes.size() / 2){

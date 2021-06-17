@@ -8,9 +8,9 @@ public class main {
         Bloco bloco3 = new BlocoHard();
         
         //INSTÂNCIA DE OBJETOS TIPO QUESTAO
-        Questao qstEasy1 = new Questao("Quanto é 1 + 1?", "2");
-        Questao qstNormal1 = new Questao("Quanto é 10²", "100");
-        Questao qstHard1 = new Questao("Em em um triangulo retangulo, b = 3 e c = 4. Qual o valor da hipotenusa", "5");
+        Questao qstEasy1 = new Questao("easy");
+        Questao qstNormal1 = new Questao("normal");
+        Questao qstHard1 = new Questao("hard");
 
         
         //CLONES DE OBJETOS DO TIPO QUESTAO
@@ -18,14 +18,11 @@ public class main {
         Questao qstNormal2 = (Questao) qstNormal1.clone();
         Questao qstHard2 = (Questao) qstHard1.clone();
         
-        qstEasy2.setQst("Quanto é 20 - 10?");
-        qstEasy2.setResposta("10");
-        qstNormal2.setQst("Quanto é 5 x 5?");
-        qstNormal2.setResposta("25");
-        qstHard2.setQst("Quanto é (-2²)");
-        qstHard2.setResposta("-4");
+        qstEasy2.gerarQstEasy();
+        qstNormal2.gerarQstNormal();
+        qstHard2.gerarQstHard();
+
         
-        System.out.println("Questao Normal 1 e 2: " + qstNormal1.getQst() + " ... " + qstNormal2.getQst() + "Questao Dificil 1 e 2: " + qstHard1.getQst() + " ... " + qstHard2.getQst());
         
         //QUESTOES ADICIONADAS EM BLOCOS
         bloco1.addQst(qstEasy1);
