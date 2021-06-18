@@ -11,6 +11,18 @@ public abstract class Bloco {
         this.proxNivel = proxBloco;
     }
     
+    public Bloco getProximoNivel(){
+        return this.proxNivel;
+    }
+    
+    public List <Questao> getListQst(){
+        return questoes;
+    }
+    
+    public int getQntQst(){
+        return questoes.size();
+    }
+    
     public Bloco(){
         this.questoes = new ArrayList();
     }

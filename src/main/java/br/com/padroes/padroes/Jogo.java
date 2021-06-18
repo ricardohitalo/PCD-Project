@@ -19,7 +19,7 @@ public class Jogo{
         }
     }
     
-    public void play(){
+    public void play(Bloco bloco){
         int nivel = 0;
         boolean verif;
         System.out.println("\nNome do jogador: ");
@@ -27,19 +27,21 @@ public class Jogo{
         System.out.println("Responda as Questões: \n");
         switch(nivel){
             case 0:
-                if(verif = playQsts(nivel))
+                if(verif = playQsts(bloco, "easy")){
                     nivel++;
-                else
+                    bloco = bloco.getProximoNivel();
+                }else
                     break;
                 
             case 1:
-                if(verif = playQsts(nivel))
+                if(verif = playQsts(bloco, "normal")){
                     nivel++;
-                else
+                    bloco = bloco.getProximoNivel();
+                }else
                     break;
             
             case 2:
-                if(verif = playQsts(nivel))
+                if(verif = playQsts(bloco, "hard"))
                     //6 é o total de qsts
                     //System.out.println("\nAnálise de Desempenho: Acertos: " + (player.getAcertos() / 6) * 100 + "%  | Erros: " + (player.getErros() / 6) * 100 + "%\n");
                 break;              
@@ -48,20 +50,22 @@ public class Jogo{
         System.out.println("\nFIM DO JOGO! O jogador " + player.getNome() + " teve um total de " + player.getAcertos() + " acertos e " + player.getErros() + " erros! \n");
     }
     
-    public boolean playQsts(int bloco){
-        for(int j = 0; j < blocos.get(bloco).questoes.size(); j++){
-            System.out.println((j + 1) + "° questão do Bloco " + (bloco + 1) + ": " + blocos.get(bloco).questoes.get(j).getQst());
+    public boolean playQsts(Bloco bloco, String blocoNome){
+        int acertos = 0;
+        for(int j = 0; j < bloco.getListQst().size(); j++){         
+            System.out.println((j + 1) + "° questão do Bloco " + blocoNome + ": " + bloco.getListQst().get(j).getQst());
             player.setResposta(ler.next());
-            if(player.getResposta().equals(blocos.get(bloco).questoes.get(j).getResposta())){
+            if(player.getResposta().equals(bloco.getListQst().get(j).getResposta())){
+                acertos += 1;
                 player.setAcertos(player.getAcertos() + 1);
                 System.out.println("\nRESPOSTA CORRETA!");
             }else{
                 player.setErros(player.getErros() + 1);
-                System.out.println("\nRESPOSTA ERRADA! R: " + blocos.get(bloco).questoes.get(j).getResposta());
+                System.out.println("\nRESPOSTA ERRADA! R: " + bloco.getListQst().get(j).getResposta());
             }
         }
-        if(player.getAcertos() > blocos.get(bloco).questoes.size() / 2){
-            System.out.println("\nVoçê foi aprovado na etapa " + (bloco + 1) + "! O jogador " + player.getNome() + " teve um total de " + player.getAcertos() + " acertos e " + player.getErros() + " erros! \n");
+        if(acertos >= bloco.getQntQst() / 2){
+            System.out.println("\nVoçê foi aprovado na etapa " + blocoNome + "! O jogador " + player.getNome() + " teve um total de " + player.getAcertos() + " acertos e " + player.getErros() + " erros! \n");
             return true;           
         }else{
             System.out.println("\nFIM DO JOGO! O jogador " + player.getNome() + " teve um total de " + player.getAcertos() + " acertos e " + player.getErros() + " erros e foi REPROVADO! \n");

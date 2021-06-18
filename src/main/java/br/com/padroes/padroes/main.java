@@ -12,6 +12,9 @@ public class main {
         Questao qstNormal1 = new Questao("normal");
         Questao qstHard1 = new Questao("hard");
 
+        //CHAIN OF RESPONSIBILITY
+        bloco1.proximoNivel(bloco2);
+        bloco2.proximoNivel(bloco3);
         
         //CLONES DE OBJETOS DO TIPO QUESTAO
         Questao qstEasy2 = (Questao) qstEasy1.clone();
@@ -34,13 +37,9 @@ public class main {
         bloco3.addQst(qstHard1);
         bloco3.addQst(qstHard2);
         
-        //BLOCOS ADICIONADOS AO JOGO
-        jogo.addBloco(bloco1);
-        jogo.addBloco(bloco2);
-        jogo.addBloco(bloco3);
         
-        //Start QUIZ
-        jogo.play();
+        //Start GAME
+        jogo.play(bloco1);
         
     }
 }
