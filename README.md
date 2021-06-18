@@ -10,7 +10,7 @@
 :man_technologist: [Antonia Vanessa](#)
 
 ### _Descrição_ :scroll: 
-O projeto consiste em um quiz matematimatico utilizando 3 padrões de projeto diferentes:
+O projeto consiste em um quiz matemático utilizando 3 padrões de projeto diferentes:
 <ul>
   <li>_Criacional:_ Prototype;</li>
   <li>_Estrutural:_ Composite;</li>
